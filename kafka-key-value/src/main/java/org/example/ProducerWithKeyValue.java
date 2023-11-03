@@ -19,10 +19,10 @@ public class ProducerWithKeyValue {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(configs);
 
-        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, "Pangyo", "Pangyo");
+        int partitionNo = 0;
+        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, partitionNo, "Pankyo", "Pankyo");
         producer.send(record);
-        ProducerRecord<String, String> record2 = new ProducerRecord<>(TOPIC_NAME, "Busan", "Busan");
-        producer.send(record2);
+
         producer.flush();
         producer.close();
     }
